@@ -1,0 +1,124 @@
+:root1{
+  --zyl-bg-color: red;
+    --black: ghostwhite;
+    --font: black;
+    --color1: white;
+    --bgcolor2: #2f2f2f;
+    --color2: #409eff;
+}
+//头
+.black{
+  background: white;
+}
+//主页
+.navs{
+  background: #2f2f2f !important;
+}
+.font{
+  color: white !important;
+}
+//右盒子首页
+.rigsdiv{
+  background: #2f2f2f;
+}
+.lcdibig{
+  background: #2f2f2f !important;
+  color: white;
+  box-shadow: 0 0 black!important;
+}
+//覆盖elementplus
+.el-collapse-item__header{
+  background: none !important;
+  padding: 0 10px!important;
+}
+.el-collapse-item__header{
+  color: white !important;
+  border: 0 !important;
+}
+.bod{
+  background: black !important;
+}
+.number,.btn-prev,.btn-next,.more{
+  background: #2f2f2f !important;
+  color: white !important;
+}
+.is-active{
+  background: #409eff !important;
+  color: white !important;
+}
+.el-textarea__inner{
+  box-shadow: 0 0 !important;
+  background: #2f2f2f !important;
+  color: white !important;
+}
+.el-collapse-item__wrap,.el-collapse-item__content{
+  background: #2f2f2f !important;
+  color: white !important;
+}
+.pl{
+  background: #2f2f2f !important;
+}
+.el-input__wrapper {
+  display: inline-flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 11px;
+  background-color: #2f2f2f !important;
+  background-image: none;
+  border-radius: var(--el-input-border-radius,var(--el-border-radius-base));
+  cursor: text;
+  transition: var(--el-transition-box-shadow);
+  transform: translate3d(0,0,0);
+  box-shadow: 0 0 0 1px var(--el-input-border-color,var(--el-border-color)) inset;
+}
+.el-input__inner {
+  --el-input-inner-height: calc(var(--el-input-height, 32px) - 2px);
+  width: 100%;
+  flex-grow: 1;
+  -webkit-appearance: none;
+  color: white !important;
+  font-size: inherit;
+  height: var(--el-input-inner-height);
+  line-height: var(--el-input-inner-height);
+  padding: 0;
+  outline: 0;
+  border: none;
+  background: 0 0;
+  box-sizing: border-box;
+}
+.el-backtop {
+  --el-backtop-bg-color: var(--el-bg-color-overlay);
+  --el-backtop-text-color: var(--el-color-primary);
+  --el-backtop-hover-bg-color: var(--el-border-color-extra-light);
+  position: fixed;
+  background-color: gray !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--el-backtop-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: var(--el-box-shadow-lighter);
+  cursor: pointer;
+  z-index: 5;
+}
+.el-icon {
+  --color: inherit;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: white !important;
+  font-size: inherit;
+}
+.deatexx{
+  color: #c6c6c6;
+}
+
