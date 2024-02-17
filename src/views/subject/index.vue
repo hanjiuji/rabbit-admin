@@ -37,6 +37,8 @@ const loginmethod = () => {
 }
 // 优化变颜色
 const emit = defineEmits(["chageColor"])
+// 优化锁
+const flags = ref<Boolean>(true)
 // win滚动事件
 const defscroll = () => {
   console.log("滚动")
@@ -54,17 +56,18 @@ const defscroll = () => {
       // $("topmenue").addClass("slide-in-blurred-top ")
       // tops.style.top = "0";
       emit("chageColor", 0)
-    } else if (top >= 70) {
+    } else if (top >= 80) {
       // console.log("ok2");
       // emit("chageColor", 0)
       tops.style.top = "0";
       emit("chageColor", 1)
     } else {
-      tops.style.top = "-100px";
+      tops.style.top = "-300px";
       emit("chageColor", 1)
     }
   })
 }
+
 provide("logins", loginmethod)
 onMounted(() => {
   defscroll();

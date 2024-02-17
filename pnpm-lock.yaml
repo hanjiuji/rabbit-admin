@@ -20,6 +20,9 @@ dependencies:
   bootstrap-icons:
     specifier: ^1.11.3
     version: 1.11.3
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
   element-plus:
     specifier: ^2.5.2
     version: 2.5.2(vue@3.4.15)

@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import dayjs from 'dayjs'
+
 defineOptions({
   name: 'footI'
 })
+const localData = ref(dayjs().format('YYYY-MM-DD HH:mm:ss'));
 </script>
 
 <template>
@@ -41,7 +45,7 @@ defineOptions({
         </div>
         <div class="footrrb">
           <p>当前时间</p>
-          <p>2023-12-12 00:00:00</p>
+          <p>{{ localData }}</p>
         </div>
       </div>
     </div>
@@ -125,4 +129,5 @@ defineOptions({
       }
     }
   }
-}</style>
+}
+</style>

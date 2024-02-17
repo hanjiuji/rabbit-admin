@@ -22,7 +22,16 @@ type categorys = {
   name: String
 }
 // 默认数据
-const category = ref<categorys[] | []>([])
+const category = ref<categorys[] | []>([{
+  id: 0,
+  name: "首页"
+}, {
+  id: 1,
+  name: "叙事"
+}, {
+  id: 2,
+  name: "抒情"
+}])
 // '首页', '叙事', '抒情', '郭默默', '刘大帅'
 // const active = ref(0);
 // 分类仓库优化请求

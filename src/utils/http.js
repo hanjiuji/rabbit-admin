@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8848',
+  //  '/api'
+  baseURL: 'http://localhost:8848/api',
   timeout: 5000,
 });
 // 添加请求拦截器

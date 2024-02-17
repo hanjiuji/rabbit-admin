@@ -33,18 +33,24 @@ const adminPicEntity = ref<adminPicEntityDto[]>()
 // 预览列表
 const adminPicEntityDtoList = ref<String[]>()
 // 路由
-const router=useRouter();
+const router = useRouter();
 // 获取用户图片
 const defAdminPicture = async () => {
-  if (!adminStore.userInfo!.id) {
+  try {
+    if (!adminStore.userInfo!.id) {
+      router.push("/articeHome")
+      return ElMessage.warning("请先登录")
+    }
+    const res = await getAdminPicture(adminStore.userInfo!.id)
+    console.log(res);
+    if (res.data) {
+      adminPicEntity.value = res.data.picEntity
+      adminPicEntityDtoList.value = res.data.picList
+    }
+  } catch (e) {
+    console.log(e);
     router.push("/articeHome")
     return ElMessage.warning("请先登录")
-  }
-  const res = await getAdminPicture(adminStore.userInfo!.id)
-  console.log(res);
-  if (res.data) {
-    adminPicEntity.value = res.data.picEntity
-    adminPicEntityDtoList.value = res.data.picList
   }
 }
 defAdminPicture()
@@ -53,7 +59,7 @@ const previewIndex = ref<Number>(0)
 // 触发预览
 const toge = (index: Number) => {
   console.log("切换", index);
-  previewIndex.value=index
+  previewIndex.value = index
 }
 </script>
 
@@ -66,9 +72,9 @@ const toge = (index: Number) => {
         </div>
         <div class="pics">
           <div class="demo-image__preview">
-            <el-image style="width: 200px; height: 200px" v-for="(item,i) in adminPicEntity" :src="item.img" :zoom-rate="1.2"
-              :max-scale="7" :min-scale="0.2" :preview-src-list="adminPicEntityDtoList" :initial-index="previewIndex" @show="toge(i)"
-              fit="cover" />
+            <el-image style="width: 200px; height: 200px" v-for="(item, i) in adminPicEntity" :src="item.img"
+              :zoom-rate="1.2" :max-scale="7" :min-scale="0.2" :preview-src-list="adminPicEntityDtoList"
+              :initial-index="previewIndex" @show="toge(i)" fit="cover" />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAdminStore } from '@/stores';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 
 defineOptions({
@@ -9,6 +10,12 @@ defineOptions({
 const adminLabel = ref<String[]>(["可爱", "悠哉哉", "无聊中", "追剧中", "好运涟涟", "元气满满"])
 // 拿到用户仓库
 const adminStore = useAdminStore()
+// 路由
+const router = useRouter()
+if (!adminStore.token) { 
+  adminStore.userInfo!.img= 'https://i0.hdslb.com/bfs/article/17e425951530319e3f565b520268b584266664645.jpg@1256w_1262h_!web-article-pic.webp'
+  router.push("/articeHome")
+}
 </script>
 
 <template>
@@ -25,14 +32,15 @@ const adminStore = useAdminStore()
             <div class="cardf">
               <div class="cards">
                 <img
-                  :src="adminStore.userInfo!.img?adminStore.userInfo!.img.toString():'https://i0.hdslb.com/bfs/article/17e425951530319e3f565b520268b584266664645.jpg@1256w_1262h_!web-article-pic.webp'"
+                  :src="adminStore.userInfo!.img ? adminStore.userInfo!.img.toString() : 'https://i0.hdslb.com/bfs/article/17e425951530319e3f565b520268b584266664645.jpg@1256w_1262h_!web-article-pic.webp'"
                   alt="" class="cover">
                 <div class="head">
                   <div class="data">
                     <div class="title1">
                       <div>{{ adminStore.userInfo!.name ? adminStore.userInfo!.name : "小兔子" }}</div><span>INFO</span>
                     </div>
-                    <div class="title2">{{ adminStore.userInfo!.leaveMsg ? adminStore.userInfo!.leaveMsg : "兔子爱吃萝卜" }}</div>
+                    <div class="title2">{{ adminStore.userInfo!.leaveMsg ? adminStore.userInfo!.leaveMsg : "兔子爱吃萝卜" }}
+                    </div>
                   </div>
                 </div>
                 <div class="foot">
