@@ -7,9 +7,9 @@ export const getlogin = (account: String, password: String) => {
   });
 }
 // 注册账户
-export const saveAdmin = (phone: String, verification: String) => {
+export const saveAdmin = (account: String, password: String) => {
   return http.post("/admin/register", {
-    phone, verification
+    account, password
   });
 }
 

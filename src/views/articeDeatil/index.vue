@@ -257,7 +257,7 @@ const submitDetail = async () => {
             </div>
           </div>
           <div class="plxrbot">
-            <p>米老鼠</p>
+            <p>{{ item.content }}</p>
           </div>
         </div>
       </div>

@@ -71,10 +71,11 @@ const jumpArticleDetail = (id: Number) => {
       </div>
       <div class="row">
         <div class="col-sm">
-          <div class="fxcontent">
-            <div class="fxcontents lcdibig" v-for="item in articleList" :key="item.id.toString" @click="jumpArticleDetail(item.id)" >
+          <div class="fxcontent" v-if="articleList.length != 0">
+            <div class="fxcontents lcdibig" v-for="item in articleList" :key="item.id.toString"
+              @click="jumpArticleDetail(item.id)">
               <div class="contentimgs">
-                <img :src="item.img?item.img.toString():'https://candinya.com/images/thumb/thumb_9.webp'" alt="">
+                <img :src="item.img ? item.img.toString() : 'https://candinya.com/images/thumb/thumb_9.webp'" alt="">
               </div>
               <div class="cotentp">
                 <p style="color: palevioletred">{{ item.title }}</p>
@@ -82,6 +83,9 @@ const jumpArticleDetail = (id: Number) => {
                 <p>{{ item.createTime }}</p>
               </div>
             </div>
+          </div>
+          <div v-else>
+            <el-empty description="当前网络不佳请重新刷新" />
           </div>
         </div>
       </div>

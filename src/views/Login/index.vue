@@ -110,6 +110,7 @@ const submitPhone = async () => {
   const res = await saveAdmin(admin.value, password.value)
   if (res.msg == SUCCESS) {
     ElMessage.success("注册成功")
+    login();
   } else {
     ElMessage.warning("注册失败")
   }

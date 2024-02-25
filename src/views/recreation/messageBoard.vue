@@ -39,7 +39,7 @@ const defMessageBoard = async () => {
   }
   const res = await getMessageBoard(adminStore.userInfo!.id)
   console.log(res)
-  if (!res.data) {
+  if (!res.data && res.data.length != 0) {
     return ElMessage.warning("由于网络不佳,请重新刷新")
   }
   content.value = res.data.content
@@ -60,8 +60,13 @@ const change = async () => {
     // 没有留言板id需要重新拉取
     return defMessageBoard()
   }
-  await putMessageBoard(messageBoard.MessageBoardId, content.value)
-  ElMessage.success("修改成功")
+  const res=await putMessageBoard(messageBoard.MessageBoardId, content.value)
+  if (res.msg == SUCCESS) {
+    ElMessage.success("修改成功")
+    defMessageBoard()
+  } else {
+    ElMessage.warning("修改失败没有请重新修改")
+  }
 }
 // 留言板评论类型
 type MessageBoardDto = {
