@@ -234,7 +234,7 @@ const submitDetail = async () => {
       </div>
       <div class="detapltj">
         <div>
-          124评论
+          {{ articleReview.length}}评论
         </div>
         <div>
           按正序
